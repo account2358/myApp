@@ -1,0 +1,16 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+PIN_11	led.c	6;"	d	file:
+PIN_12	led.c	7;"	d	file:
+display_timer	led.c	/^void display_timer()$/;"	f
+end	led.c	/^struct timeval start,end;$/;"	v	typeref:struct:
+isTimeRun	led.c	/^int isTimeRun = 0;$/;"	v
+main	led.c	/^int main(int argc, char **argv)$/;"	f
+start	led.c	/^struct timeval start,end;$/;"	v	typeref:struct:timeval
+time_begin	led.c	/^void time_begin()$/;"	f
+time_end	led.c	/^void time_end()$/;"	f
+time_reset	led.c	/^void time_reset()$/;"	f
