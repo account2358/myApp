@@ -25,6 +25,7 @@ void process_conn_server(int s);
 void sig_pipe(int signo);    
     
 int ss,sc;  //ss....socket....sc........socket...    
+int count = 0;
     
 int main(int argc,char *argv[])    
 {    
@@ -99,6 +100,7 @@ int main(int argc,char *argv[])
         else    
         {    
             printf("server : connected\n");    
+		count++;
         }    
     
         //................    
@@ -129,9 +131,9 @@ void process_conn_server(int s)
     for(;;)    
     {    
         //...    
-        for(size = 0;size == 0 ;size = read(s,buffer,buflen));    
+        //for(size = 0;size == 0 ;size = read(s,buffer,buflen));    
         //............    
-        printf("%s",buffer);    
+        //printf("%s",buffer);    
     
         //....    
         if(strcmp(buffer,"quit") == 0)    
@@ -139,12 +141,18 @@ void process_conn_server(int s)
             close(s);   //....0.....-1    
             return ;    
         }    
-        sprintf(buffer,"%d bytes altogether\n",size);    
+	if(count%2 == 0)
+		 sprintf(buffer,"{\"M\":\"jidianqi\",\"V\":\"on\"}");    
+        else
+		 sprintf(buffer,"{\"M\":\"jidianqi\",\"V\":\"off\"}");    
         write(s,buffer,strlen(buffer)+1);    
+	printf("sended");
+            close(s);   //....0.....-1    
+            return ;    
     }    
 }    
 void sig_pipe(int signo)    
-{    
+{   // 
     printf("catch a signal\n");    
     if(signo == SIGTSTP)    
     {    
