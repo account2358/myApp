@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -m64 -mtune=generic -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -m64 -mtune=generic -O2 -std=gnu++0x -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I. -isystem /usr/include/qt5 -isystem /usr/include/qt5/QtGui -isystem /usr/include/qt5/QtNetwork -isystem /usr/include/qt5/QtCore -I. -I/usr/lib64/qt5/mkspecs/linux-g++
+INCPATH       = -I. -I. -isystem /usr/include/qt5 -isystem /usr/include/qt5/QtNetwork -isystem /usr/include/qt5/QtCore -I. -I/usr/lib64/qt5/mkspecs/linux-g++
 QMAKE         = /usr/bin/qmake-qt5
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = server1.0.0
 DISTDIR = /root/code/myApp/qt/server/.tmp/server1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-z,relro
-LIBS          = $(SUBLIBS) -lQt5Gui -lQt5Network -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -lQt5Network -lQt5Core -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -48,8 +48,11 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = main.cpp 
-OBJECTS       = main.o
+SOURCES       = main.cpp \
+		server.cpp moc_server.cpp
+OBJECTS       = main.o \
+		server.o \
+		moc_server.o
 DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/common/unix.conf \
 		/usr/lib64/qt5/mkspecs/common/linux.conf \
@@ -99,14 +102,14 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/qt.prf \
 		/usr/lib64/qt5/mkspecs/features/resources.prf \
 		/usr/lib64/qt5/mkspecs/features/moc.prf \
-		/usr/lib64/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib64/qt5/mkspecs/features/unix/thread.prf \
 		/usr/lib64/qt5/mkspecs/features/file_copies.prf \
 		/usr/lib64/qt5/mkspecs/features/testcase_targets.prf \
 		/usr/lib64/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib64/qt5/mkspecs/features/yacc.prf \
 		/usr/lib64/qt5/mkspecs/features/lex.prf \
-		server.pro  main.cpp
+		server.pro server.h main.cpp \
+		server.cpp
 QMAKE_TARGET  = server
 DESTDIR       = 
 TARGET        = server
@@ -167,7 +170,6 @@ Makefile: server.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/
 		/usr/lib64/qt5/mkspecs/features/qt.prf \
 		/usr/lib64/qt5/mkspecs/features/resources.prf \
 		/usr/lib64/qt5/mkspecs/features/moc.prf \
-		/usr/lib64/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib64/qt5/mkspecs/features/unix/thread.prf \
 		/usr/lib64/qt5/mkspecs/features/file_copies.prf \
 		/usr/lib64/qt5/mkspecs/features/testcase_targets.prf \
@@ -175,7 +177,6 @@ Makefile: server.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/
 		/usr/lib64/qt5/mkspecs/features/yacc.prf \
 		/usr/lib64/qt5/mkspecs/features/lex.prf \
 		server.pro \
-		/usr/lib64/libQt5Gui.prl \
 		/usr/lib64/libQt5Network.prl \
 		/usr/lib64/libQt5Core.prl
 	$(QMAKE) -o Makefile server.pro
@@ -228,7 +229,6 @@ Makefile: server.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/
 /usr/lib64/qt5/mkspecs/features/qt.prf:
 /usr/lib64/qt5/mkspecs/features/resources.prf:
 /usr/lib64/qt5/mkspecs/features/moc.prf:
-/usr/lib64/qt5/mkspecs/features/unix/opengl.prf:
 /usr/lib64/qt5/mkspecs/features/unix/thread.prf:
 /usr/lib64/qt5/mkspecs/features/file_copies.prf:
 /usr/lib64/qt5/mkspecs/features/testcase_targets.prf:
@@ -236,7 +236,6 @@ Makefile: server.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/
 /usr/lib64/qt5/mkspecs/features/yacc.prf:
 /usr/lib64/qt5/mkspecs/features/lex.prf:
 server.pro:
-/usr/lib64/libQt5Gui.prl:
 /usr/lib64/libQt5Network.prl:
 /usr/lib64/libQt5Core.prl:
 qmake: FORCE
@@ -254,7 +253,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents server.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp server.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -285,8 +285,13 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -m64 -mtune=generic -O2 -std=gnu++0x -Wall -W -dM -E -o moc_predefs.h /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all:
+compiler_moc_header_make_all: moc_server.cpp
 compiler_moc_header_clean:
+	-$(DEL_FILE) moc_server.cpp
+moc_server.cpp: server.h \
+		moc_predefs.h
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/root/code/myApp/qt/server -I/root/code/myApp/qt/server -I/usr/include/qt5 -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtCore -I/usr/include/c++/4.8.5 -I/usr/include/c++/4.8.5/x86_64-redhat-linux -I/usr/include/c++/4.8.5/backward -I/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include -I/usr/local/include -I/usr/include server.h -o moc_server.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_yacc_decl_make_all:
@@ -295,12 +300,18 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean 
+compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
 
-main.o: main.cpp 
+main.o: main.cpp server.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
+
+server.o: server.cpp server.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o server.o server.cpp
+
+moc_server.o: moc_server.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_server.o moc_server.cpp
 
 ####### Install
 

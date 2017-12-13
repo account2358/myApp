@@ -1,0 +1,53 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AR	Makefile	/^AR            = ar cqs$/;"	m
+CC	Makefile	/^CC            = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS        = -pipe -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -m64 -mtune=generic -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)$/;"	m
+CHK_DIR_EXISTS	Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
+COMPRESS	Makefile	/^COMPRESS      = gzip -9f$/;"	m
+COPY	Makefile	/^COPY          = cp -f$/;"	m
+COPY_DIR	Makefile	/^COPY_DIR      = cp -f -R$/;"	m
+COPY_FILE	Makefile	/^COPY_FILE     = cp -f$/;"	m
+CXX	Makefile	/^CXX           = g++$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS      = -pipe -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -m64 -mtune=generic -O2 -std=gnu++0x -Wall -W -D_REENTRANT -fPIC $(DEFINES)$/;"	m
+DEFINES	Makefile	/^DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB$/;"	m
+DEL_DIR	Makefile	/^DEL_DIR       = rmdir$/;"	m
+DEL_FILE	Makefile	/^DEL_FILE      = rm -f$/;"	m
+DESTDIR	Makefile	/^DESTDIR       = $/;"	m
+DIST	Makefile	/^DIST          = \/usr\/lib64\/qt5\/mkspecs\/features\/spec_pre.prf \\$/;"	m
+DISTDIR	Makefile	/^DISTDIR = \/root\/code\/myApp\/qt\/server\/.tmp\/server1.0.0$/;"	m
+DISTNAME	Makefile	/^DISTNAME      = server1.0.0$/;"	m
+INCPATH	Makefile	/^INCPATH       = -I. -I. -isystem \/usr\/include\/qt5 -isystem \/usr\/include\/qt5\/QtGui -isystem \/usr\/include\/qt5\/QtNetwork -isystem \/usr\/include\/qt5\/QtCore -I. -I\/usr\/lib64\/qt5\/mkspecs\/linux-g++$/;"	m
+INSTALL_DIR	Makefile	/^INSTALL_DIR   = cp -f -R$/;"	m
+INSTALL_FILE	Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
+INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
+LFLAGS	Makefile	/^LFLAGS        = -Wl,-O1 -Wl,-z,relro$/;"	m
+LIBS	Makefile	/^LIBS          = $(SUBLIBS) -lQt5Gui -lQt5Network -lQt5Core -lGL -lpthread $/;"	m
+LINK	Makefile	/^LINK          = g++$/;"	m
+MAKEFILE	Makefile	/^MAKEFILE      = Makefile$/;"	m
+MKDIR	Makefile	/^MKDIR         = mkdir -p$/;"	m
+MOVE	Makefile	/^MOVE          = mv -f$/;"	m
+MyServer	server.h	/^	MyServer(){};$/;"	f	class:MyServer
+MyServer	server.h	/^class MyServer:public QObject$/;"	c
+OBJECTS	Makefile	/^OBJECTS       = main.o \\$/;"	m
+OBJECTS_DIR	Makefile	/^OBJECTS_DIR   = .\/$/;"	m
+PORT	server.h	10;"	d
+QMAKE	Makefile	/^QMAKE         = \/usr\/bin\/qmake-qt5$/;"	m
+QMAKE_TARGET	Makefile	/^QMAKE_TARGET  = server$/;"	m
+RANLIB	Makefile	/^RANLIB        = $/;"	m
+SED	Makefile	/^SED           = sed$/;"	m
+SOURCES	Makefile	/^SOURCES       = main.cpp \\$/;"	m
+STRIP	Makefile	/^STRIP         = $/;"	m
+SYMLINK	Makefile	/^SYMLINK       = ln -f -s$/;"	m
+TAR	Makefile	/^TAR           = tar -cf$/;"	m
+TARGET	Makefile	/^TARGET        = server$/;"	m
+init	server.cpp	/^void MyServer::init()$/;"	f	class:MyServer
+main	main.cpp	/^int main(int argc, char *argv[])$/;"	f
+server	server.h	/^	QTcpServer *server;$/;"	m	class:MyServer
+serverNewConnect	server.cpp	/^void MyServer::serverNewConnect()$/;"	f	class:MyServer
+socket	server.h	/^	QTcpSocket *socket;$/;"	m	class:MyServer
+~MyServer	server.h	/^	~MyServer(){};$/;"	f	class:MyServer

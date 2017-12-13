@@ -1,0 +1,12 @@
+conf={
+HOST="www.bigiot.net",
+PORT=8181,
+DEVICEID="112",
+APIKEY="cxx036f9c",
+INPUTID="162",
+LED=1,
+BUZZER=5,
+INFRARED=4,
+STATUS=0,
+OFFON=1
+}
