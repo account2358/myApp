@@ -10,7 +10,7 @@
 #include <QSqlRecord>
 #include <QWebFrame>
 #include <QWebView>
-#include <qDebug>
+#include <QDebug>
 #include <QMutex>
 #include <QSerialPort>
 #include <QSettings>

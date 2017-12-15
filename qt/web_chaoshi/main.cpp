@@ -2,7 +2,7 @@
 #include <QApplication>
 #include <QNetworkProxy>
 #include <QWebView>
-#include <qDebug>
+#include <QDebug>
 #include "json/json.h"
 MyThread *g_Thread;
 Widget *g_w;
