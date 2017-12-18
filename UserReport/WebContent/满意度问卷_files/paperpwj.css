@@ -1,0 +1,37 @@
+﻿ .underline
+    {
+        background-color: transparent;
+        border:0;
+        border-bottom:solid 1px #7F9DB9;
+    }
+
+    .datagrid-mask {position: absolute;left: 0;top: 0;width: 100%;height: 100%;opacity: 0.3;filter: alpha(opacity=30);display: none;}
+    .datagrid-mask-msg {position: absolute;top: 50%;margin-top: -20px;padding: 12px 5px 10px 30px;width: auto;height: 16px;border-width: 2px;border-style: solid;display: none;}
+    .datagrid-mask-msg { background: #ffffff url("/Content/themes/gray/images/loading.gif") no-repeat scroll 5px center;}
+    .datagrid-mask {background: #ccc;}
+    .datagrid-mask-msg {border-color: #D3D3D3;}
+
+     .spanLeft
+    {
+         float:left;
+    }
+    .spanRight
+    {
+        float:right;
+    }
+    .slider{width:100%;}
+    .imageSlider1 {
+        margin: 0;
+        padding: 0;
+        height: 20px;
+        width: 100%;
+        background-image: url("/Content/images/slider/scrollbg.gif");
+    }
+
+    .imageBar1 {
+        margin: 0;
+        padding: 0;
+        height: 17px;
+        width: 10px;
+        background-image: url("/Content/images/slider/scrfloat.gif");
+    }

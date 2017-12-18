@@ -1,0 +1,101 @@
+﻿* {
+	padding: 0px;
+	margin: 0px;
+	font-size:15px;
+}
+.div_headerbg{ background:url(images/newbackground18_bg.jpg) center bottom no-repeat; height:200px;}
+.tab_simple{ display:none;}
+.div_body {
+	width: 900px;
+	margin: 0 auto;
+	background-color:rgb(255, 255, 255); border:4px solid #C4E0E6;/*border:4px solid #57c8ff; box-shadow:0px 0px 6px #9ccbd5;*/ background:#fff url(images/bg_w2.png) right bottom no-repeat;
+}
+.div_question, .div_title {
+	padding: 10px 2%;
+	clear: both;
+	margin: 2px auto;
+	width: 96%;
+	height: auto;
+	background:url(images/bg_line2.png) bottom repeat-x;
+	
+}
+ul li{ list-style:none;}
+.wj_title{ font-size:18px; text-align:center; padding:15px 10px;}
+
+.div_question ul li{ padding-top:5px  !important; padding-bottom:5px  !important;}
+
+.div_question textarea{ border:1px solid #9ccbd5; background:#ecf7f9; font-size:14px; line-height:22px; padding:5px; max-width:90%; margin:5px 0; _height:80px;}
+#div_foot{ padding:70px 0; height:42px;}
+a.icon_submit{ width:100px; text-align:center; display:block; margin:0 auto; text-decoration:none; background:#ecf7f9; height:40px; line-height:40px; border:1px solid #99bdc5; color:#333; box-shadow:0px 0px 5px #ecf7f9}
+a.icon_submit:active{ background:#accad0; color:#fff;}
+
+
+
+/*按钮样式自定义*/
+.bindDivreFlash{ width:100%; position:relative; }
+.radioDiv li{position:relative;  clear:left; overflow:hidden; color:#000250; +width:100%;}
+.radioDiv li span.icon{ background:url(images/radio.png) no-repeat; _background:url(images/radio.gif) no-repeat; width:18px; height:18px; position:absolute; left:0px; top:7px;}
+.radioDiv li:active{ color:#598b96}
+.radioDiv li.active span.icon{ background-position:0 -23px}
+.checkDiv li{ position:relative; width:auto; clear:left;color:#000250;  +width:100%;}
+.checkDiv li span.icon{ background:url(images/checkbox.png) no-repeat; _background:url(images/checkbox.gif) no-repeat; width:18px; height:18px; position:absolute; left:0px; top:7px;}
+.checkDiv li.active span.icon{ background-position:0 -23px}
+.checkDiv li:active{ color:#598b96}
+
+.radioDiv2 li{position:relative; margin-right:10px; color:#000250;width:auto;float:left; }
+.radioDiv2 li span.icon{ background:url(images/radio.png) no-repeat; _background:url(images/radio.gif) no-repeat; width:18px; height:18px; position:absolute; left:0px; top:7px;}
+.radioDiv2 li:active{ color:#598b96}
+.radioDiv2 li.active span.icon{ background-position:0 -23px}
+.checkDiv2 li{ position:relative; width:auto; margin-right:10px;float:left; color:#000250;  }
+.checkDiv2 li span.icon{ background:url(images/checkbox.png) no-repeat; _background:url(images/checkbox.gif) no-repeat; width:18px; height:18px; position:absolute; left:0px; top:7px;}
+.checkDiv2 li.active span.icon{ background-position:0 -23px}
+.checkDiv2 li:active{ color:#598b96}
+.bindDivreFlash li input{ display:none}
+.bindDivreFlash li{ padding-left:22px ; cursor:pointer;}
+.checkDiv li:hover,.checkDiv2 li:hover,.radioDiv li:hover,.checkDiv li.hover,.checkDiv2 li.hover,.radioDiv li.hover{ background:#f9f9f9;}
+.slider-handle{ _background-image:url(images/slider_handle.gif)}
+
+.tdcont {
+    cursor:pointer;
+}
+.tdcont:hover {
+    background:#f9f9f9;
+}
+/*按钮样式自定义 end*/
+
+ .on3{background:url("/Content/images/rate/hand_24.gif") no-repeat center;width:24px;height:24px; text-decoration:none;  cursor:pointer;}
+    .off3{background:url("/Content/images/rate/hand_24_off.gif") no-repeat center;width:24px; height:24px;text-decoration:none; cursor:pointer;}
+
+    .on2{background:url(/Content/images/rate/star_24.gif) no-repeat center;width:24px;height:24px; text-decoration:none;  cursor:pointer;}
+    .off2{background:url(/Content/images/rate/star_24_off.gif) no-repeat center;width:24px; height:24px;text-decoration:none; cursor:pointer;}
+
+    .on6{background:url(/Content/images/rate/xiaoface_24.gif) no-repeat center;width:24px;height:24px; text-decoration:none;  cursor:pointer;}
+    .off6{background:url(/Content/images/rate/xiaoface_24_off.gif) no-repeat center;width:24px; height:24px;text-decoration:none; cursor:pointer;}
+
+    .on4{background:url(/Content/images/rate/heart_24.gif) no-repeat center;width:24px;height:24px; text-decoration:none;  cursor:pointer;}
+    .off4{background:url(/Content/images/rate/heart_24_off.gif) no-repeat center;width:24px; height:24px;text-decoration:none; cursor:pointer;}
+
+    .on5{background:url(/Content/images/rate/right_24.gif) no-repeat center;width:24px;height:24px; text-decoration:none;  cursor:pointer;}
+    .off5{background:url(/Content/image/rate/right_24_off.gif) no-repeat center;width:24px; height:24px;text-decoration:none; cursor:pointer;}
+
+
+#div_head{ position:relative;}
+.myd_icon{ position:absolute; left:-240px; top:-40px; background:url(images/myd.png) no-repeat; width:139px; height:237px;}
+
+.mobileSliderOption{display:none;}
+
+@media(max-width:900px) {
+	
+	body{ padding-top:0px; padding-bottom:0px; background:none}
+	.div_body { max-width:850px; width:100%; border:none; background:#fff;}
+	.div_headerbg{ display:none; background:none;}
+	.tab_full{ display:none;}
+	.tab_simple{ display:table;}
+    .tips{ text-align:center;}
+	.body{ background:none;}
+    .mobileSliderOption{display:block;}
+    .sliderOption{display:none;}
+}
+
+
+
