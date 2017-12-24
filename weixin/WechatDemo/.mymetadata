@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="WechatDemo"
+  id="myeclipse.1408546744772"
+  context-root="/WechatDemo"
+  j2ee-spec="5.0"
+  archive="WechatDemo.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

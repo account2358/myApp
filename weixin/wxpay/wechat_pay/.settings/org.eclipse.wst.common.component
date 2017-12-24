@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="xinfu_wechat_pay">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="xinfu_wechat_pay"/>
+        <property name="java-output-path" value="/xinfu_wechat_pay/build/classes"/>
+    </wb-module>
+</project-modules>
