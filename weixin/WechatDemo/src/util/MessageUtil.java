@@ -1,6 +1,8 @@
 package util;
 
-import java.io.InputStream;  
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Writer;  
 import java.util.HashMap;  
 import java.util.List;  
@@ -8,7 +10,8 @@ import java.util.Map;
   
 import javax.servlet.http.HttpServletRequest;  
   
-import org.dom4j.Document;  
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
 import org.dom4j.Element;  
 import org.dom4j.io.SAXReader;  
 import message.resp.*;
@@ -81,11 +84,20 @@ public class MessageUtil {
      * 事件类型：unsubscribe(取消订阅) 
      */  
     public static final String EVENT_TYPE_UNSUBSCRIBE = "unsubscribe";  
-  
+
     /** 
      * 事件类型：CLICK(自定义菜单点击事件) 
      */  
     public static final String EVENT_TYPE_CLICK = "CLICK";  
+    /** 
+     * 事件类型：scancode_waitmsg(扫码带提示) 
+     */  
+    public static final String EVENT_TYPE_SCANCODE_WAITMSG = "scancode_waitmsg";  
+    /** 
+     * 事件类型：scancode_push(扫码推事件) 
+     */  
+    public static final String EVENT_TYPE_SCANCODE_PUSH = "scancode_push";  
+    
   
     /** 
      * 解析微信发来的请求（XML） 
@@ -102,16 +114,42 @@ public class MessageUtil {
         // 从request中取得输入流  
         InputStream inputStream = request.getInputStream();  
         // 读取输入流  
+        
+		/** 读取接收到的xml消息 */
+		StringBuffer sb = new StringBuffer();
+		InputStream is = request.getInputStream();
+		InputStreamReader isr = new InputStreamReader(is, "UTF-8");
+		BufferedReader br = new BufferedReader(isr);
+		String s = "";
+		while ((s = br.readLine()) != null) {
+			sb.append(s);
+		}
+		String xml = sb.toString();	//次即为接收到微信端发送过来的xml数据
+        System.out.println("xml is \n" + xml + "\n");
         SAXReader reader = new SAXReader();  
-        Document document = reader.read(inputStream);  
+        Document document =  DocumentHelper.parseText(xml);
         // 得到xml根元素  
         Element root = document.getRootElement();  
         // 得到根元素的所有子节点  
         List<Element> elementList = root.elements();  
   
         // 遍历所有子节点  
-        for (Element e : elementList)  
-            map.put(e.getName(), e.getText());  
+        for (Element e : elementList)
+        {
+        	List<Element> childList = e.elements();
+        	if(childList.size() > 0)
+        	{
+                for (Element eChild : childList)
+                {
+                    map.put(eChild.getName(), eChild.getText());
+                }
+        		
+        	}
+        	else
+        	{
+                map.put(e.getName(), e.getText());
+        	}
+        }
   
         // 释放资源  
         inputStream.close();  

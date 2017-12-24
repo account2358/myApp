@@ -10,14 +10,15 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;  
 import javax.net.ssl.SSLContext;  
 import javax.net.ssl.SSLSocketFactory;  
-import javax.net.ssl.TrustManager;  
- 
+import javax.net.ssl.TrustManager;
+
+import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 import pojo.AccessToken;
 import pojo.Menu;
 
-import org.slf4j.Logger;  
-import org.slf4j.LoggerFactory;  
+//import org.slf4j.Logger;  
+//import org.slf4j.LoggerFactory;  
 
 /** 
 * 公众平台通用接口工具类 
@@ -26,7 +27,7 @@ import org.slf4j.LoggerFactory;
 * @date 2013-08-09 
 */  
 public class WeixinUtil {  
-    private static Logger log = LoggerFactory.getLogger(WeixinUtil.class);  
+    //private static Logger log = LoggerFactory.getLogger(WeixinUtil.class);  
 	// 菜单创建（POST） 限100（次/天）  
 	public static String menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";  
 	//获取access_token的接口地址（GET） 限200（次/天）  
@@ -52,7 +53,7 @@ public class WeixinUtil {
 	    if (null != jsonObject) {  
 	        if (0 != jsonObject.getInt("errcode")) {  
 	            result = jsonObject.getInt("errcode");  
-	            log.error("创建菜单失败 errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));  
+	            System.out.println("创建菜单失败 errcode:{} errmsg:{}" + jsonObject.getInt("errcode") + jsonObject.getString("errmsg"));  
 	        }  
 	    }  
 	  
@@ -116,9 +117,9 @@ public class WeixinUtil {
            httpUrlConn.disconnect();  
            jsonObject = JSONObject.fromObject(buffer.toString());  
        } catch (ConnectException ce) {  
-           log.error("Weixin server connection timed out.");  
+           System.out.println("Weixin server connection timed out.");  
        } catch (Exception e) {  
-           log.error("https request error:{}", e);  
+    	   e.printStackTrace(); 
        }  
        return jsonObject;  
    }  
@@ -144,7 +145,7 @@ public class WeixinUtil {
            } catch (JSONException e) {  
                accessToken = null;  
                // 获取token失败  
-               log.error("获取token失败 errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));  
+               System.out.println("获取token失败 errcode:{} errmsg:{}" + jsonObject.getInt("errcode") + jsonObject.getString("errmsg"));  
            }  
        }  
        return accessToken;  

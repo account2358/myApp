@@ -24,5 +24,7 @@
 	<classpathentry kind="lib" path="G:/CODE/myApp/weixin/WechatDemo/WebRoot/WEB-INF/lib/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="lib" path="G:/CODE/myApp/weixin/WechatDemo/WebRoot/WEB-INF/lib/morph-1.1.1.jar"/>
 	<classpathentry kind="lib" path="G:/CODE/myApp/weixin/WechatDemo/WebRoot/WEB-INF/lib/morph-sandbox-1.1.1.jar"/>
+	<classpathentry kind="lib" path="G:/CODE/myApp/weixin/WechatDemo/WebRoot/WEB-INF/lib/commons-beanutils-1.9.1.jar"/>
+	<classpathentry kind="lib" path="G:/CODE/myApp/weixin/WechatDemo/WebRoot/WEB-INF/lib/commons-lang-2.6.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

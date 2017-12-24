@@ -12,6 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;  
 import javax.servlet.http.HttpServlet;  
@@ -29,7 +30,8 @@ import demo.process.WechatProcess;
  * @date 2013-05-18 
  */  
 public class CoreServlet extends HttpServlet {  
-    private static final long serialVersionUID = 4440739483644821986L;  
+    private static final long serialVersionUID = 4440739483644821986L;
+    public Map<String,String> MachineMap;
 
 	public  String getHash(String source, String hashType) {
 	    StringBuilder sb = new StringBuilder();

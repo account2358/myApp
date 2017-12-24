@@ -2,8 +2,9 @@ package main;
 
 
 import pojo.*;  
-import org.slf4j.Logger;  
-import org.slf4j.LoggerFactory;  
+//import org.slf4j.Logger;  
+//import org.slf4j.LoggerFactory;  
+import util.WeixinUtil;
   
 /** 
  * 菜单管理器类 
@@ -12,9 +13,10 @@ import org.slf4j.LoggerFactory;
  * @date 2013-08-08 
  */  
 public class MenuManager {  
-    private static Logger log = LoggerFactory.getLogger(MenuManager.class);  
+    //private static Logger log = LoggerFactory.getLogger(MenuManager.class);  
   
-    public static void main(String[] args) {  
+    public static void main(String[] args) { 
+    	System.out.println("main into");
         // 第三方用户唯一凭证  
         String appId = "000000000000000000";  
         // 第三方用户唯一凭证密钥  
@@ -29,9 +31,9 @@ public class MenuManager {
   
             // 判断菜单创建结果  
             if (0 == result)  
-                log.info("菜单创建成功！");  
+                System.out.println("菜单创建成功！");  
             else  
-                log.info("菜单创建失败，错误码：" + result);  
+            	System.out.println("菜单创建失败，错误码：" + result);  
         }  
     }  
   

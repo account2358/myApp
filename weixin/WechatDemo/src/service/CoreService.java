@@ -1,6 +1,7 @@
 package service;
 
-import java.util.Date;  
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;  
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +17,13 @@ import util.MessageUtil;
  * @date 2013-05-20 
  */  
 public class CoreService {  
+	public static Map<String,String> m_machineMap;
+	
+	public CoreService()
+	{
+		if(CoreService.m_machineMap == null)
+			CoreService.m_machineMap = new HashMap<String, String>();
+	}
     /** 
      * 处理微信发来的请求 
      *  
@@ -26,11 +34,18 @@ public class CoreService {
         String respMessage = null;  
         try {  
             // 默认返回的文本消息内容  
-            String respContent = "请求处理异常，请稍候尝试！";  
+            String respContent = "请求处理异常，请稍候尝试！";
+
+    		if(CoreService.m_machineMap == null)
+    		{
+    			System.out.println("new m_machineMap");
+    			CoreService.m_machineMap = new HashMap<String, String>();
+    		}
   
             // xml请求解析  
             Map<String, String> requestMap = MessageUtil.parseXml(request);  
   
+            System.out.println(requestMap);
             // 发送方帐号（open_id）  
             String fromUserName = requestMap.get("FromUserName");  
             // 公众帐号  
@@ -81,11 +96,40 @@ public class CoreService {
                 String eventType = requestMap.get("Event");  
                 // 订阅  
                 if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {  
-                    respContent = "谢谢您的关注！";  
+                    respContent = "谢谢您的关注！\n如需充值，请先绑定!\n机器管理-扫描绑定\n";  
                 }  
                 // 取消订阅  
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {  
                     // TODO 取消订阅后用户再收不到公众号发送的消息，因此不需要回复消息  
+                }   
+                // 扫描带提示
+                else if (eventType.equals(MessageUtil.EVENT_TYPE_SCANCODE_WAITMSG)) {  
+                    // TODO 取消订阅后用户再收不到公众号发送的消息，因此不需要回复消息 
+                    String eventKey = requestMap.get("EventKey");
+                    if(eventKey.equals("bangding"))
+                    {
+                    	String ScanType = requestMap.get("ScanType");
+                    	String ScanResult = requestMap.get("ScanResult");
+                    	if(ScanResult.length() == 8 && 
+                    			(ScanResult.charAt(0) == 'E' || ScanResult.charAt(0) == 'B')
+                    			)
+                    	{
+                    		String number = ScanResult.substring(1);
+                            System.out.println("number: "+ number);
+                        	int numberDec = Integer.parseInt(number);
+                            System.out.println("numberDec: "+ numberDec);
+                            CoreService.m_machineMap.put(ScanResult, fromUserName);
+                            respContent = "绑定成功:机器号" + ScanResult + "\n";
+                    	}
+                    	else
+                    	{
+                            respContent = "无效机器号" + ScanResult + "\n";
+                    	}
+                        System.out.println("ScanType: "+ ScanType);
+                        System.out.println("MachineNumber: "+ ScanResult);
+                        System.out.println("m_machineMap: "+ CoreService.m_machineMap);
+                    }
+                    System.out.println("eventKey: "+eventKey);
                 }  
                 // 自定义菜单点击事件  
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {  
