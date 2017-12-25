@@ -15,7 +15,49 @@
     <servlet-name>CoreServlet</servlet-name>
     <url-pattern>/wechat.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>  
+     <!-- 类名 -->  
+    <servlet-name>UploadHandleServlet</servlet-name>  
+    <!-- 所在的包 -->  
+    <servlet-class>controller.UploadHandleServlet</servlet-class>  
+  </servlet>  
+  <servlet>  
+     <!-- 类名 -->  
+    <servlet-name>PayMoney</servlet-name>  
+    <!-- 所在的包 -->  
+    <servlet-class>servlet.PayMoney</servlet-class>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>PayMoney</servlet-name>  
+    <!-- 访问的网址 -->  
+    <url-pattern>/servlet/PayMoney</url-pattern>  
+  </servlet-mapping>
+  <servlet>
+     <servlet-name>ListFileServlet</servlet-name>
+     <servlet-class>controller.ListFileServlet</servlet-class>
+	</servlet>
+ 
+	<servlet-mapping>
+	     <servlet-name>ListFileServlet</servlet-name>
+	    <url-pattern>/servlet/ListFileServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+      <servlet-name>DownLoadServlet</servlet-name>
+      <servlet-class>controller.DownLoadServlet</servlet-class>
+	</servlet>
+ 
+	<servlet-mapping>
+	      <servlet-name>DownLoadServlet</servlet-name>
+	      <url-pattern>/servlet/DownLoadServlet</url-pattern>
+	</servlet-mapping>
+  
   <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

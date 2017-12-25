@@ -13,17 +13,35 @@
 <script type="text/javascript" src="js/layer.js"></script>
 <link href="css/layer(1).css" type="text/css" rel="styleSheet"
 	id="layermcss">
-<title>好艺多充值</title>
+<title>充值</title>
 </head>
+
+
+ <script language="javascript" type="text/javascript">
+function GetRequest() {  
+    var url = location.search; //获取url中"?"符后的字串   
+    var theRequest = new Object();  
+    if (url.indexOf("?") != -1) {  
+        var str = url.substr(1);  
+        strs = str.split("&");  
+        for (var i = 0; i < strs.length; i++) {  
+            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);  
+        }  
+    }  
+    return theRequest;  
+}  
+$(document).ready(function () {  
+    var Request = new Object();  
+    Request = GetRequest();  
+    var number= Request["MachineNumber"];  
+    if(number.length == 8)
+    	machineNumber= number;
+    else
+    	window.close();
+});
+
+</script>
 <body>
-	<!--头部  star-->
-	<header>
-		<a href="javascript:history.go(-1);">
-			<div class="_left">
-				<img src="images/Arrow_left_icon.png">
-			</div> 充值
-		</a>
-	</header>
 	<!--头部 end-->
 	<div class="banner">
 		<img src="images/banner.png" width="100%" height="100%">
@@ -32,39 +50,39 @@
 	<div class="person_wallet_recharge">
 		<ul class="ul">
 			<li>
-				<h2>￥500</h2>
+				<h2>500</h2>
 				<div class="sel" style=""></div>
 			</li>
 			<li>
-				<h2>￥800</h2>
+				<h2>800</h2>
 				<div class="sel" style=""></div>
 			</li>
 			<li>
-				<h2>￥1200</h2>
+				<h2>1200</h2>
 				<div class="sel" style=""></div>
 			</li>
 			<li>
-				<h2>￥2000</h2>
+				<h2>2000</h2>
 				<div class="sel" style=""></div>
 			</li>
 			<li>
-				<h2>￥3000</h2>
+				<h2>3000</h2>
 				<div class="sel" style=""></div>
 			</li>
 			<li>
-				<h2>￥5000</h2>
+				<h2>5000</h2>
 				<div class="sel" style=""></div>
 			</li>
 			<li>
-				<h2>￥10000</h2>
+				<h2>10000</h2>
 				<div class="sel" style=""></div>
 			</li>
 			<li>
-				<h2>￥20000</h2>
+				<h2>20000</h2>
 				<div class="sel" style=""></div>
 			</li>
 			<li>
-				<h2>￥50000</h2>
+				<h2>50000</h2>
 				<div class="sel" style=""></div>
 			</li>
 			<div style="clear: both;"></div>
@@ -73,32 +91,17 @@
 			金额：<input type="text" placeholder="金额必须为100元以上" id="txt">
 		</div>
 		<div class="botton">我要充值</div>
-		<div class="agreement">
-			<p>
-				点击我要充值，即您已经表示同意<a>《充返活动协议》</a>
-			</p>
-		</div>
-		<div class="nav">
-			<ul>
-				<li><a>余额:200元</a></li>
-				<li><a>活动规则</a></li>
-				<li style="border-right: none;"><a>我的奖品</a></li>
-			</ul>
-		</div>
 		<!--遮罩层-->
 		<div class="f-overlay"></div>
 		<div class="addvideo" style="display: none;">
 			<h3>
-				本次充值<span>2000</span>元
+				本次充值<span id="payMoney">2000</span>元
 			</h3>
 			<ul>
-				<li><a>微信支付</a></li>
-				<li><a>支付宝支付</a></li>
+				<li><a id="doPay">微信支付</a></li>
 				<li class="cal">取消</li>
 			</ul>
 		</div>
 	</div>
-
-
 </body>
 </html>
