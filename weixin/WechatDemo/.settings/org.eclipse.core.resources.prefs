@@ -2,5 +2,6 @@ eclipse.preferences.version=1
 encoding//WebContent/css/new_file.css=UTF-8
 encoding//WebContent/pay.jsp=UTF-8
 encoding//WebContent/wxpay.jsp=UTF-8
+encoding//src/util/MenuUtil.java=UTF-8
 encoding/<project>=UTF-8
 separateDerivedEncodings=true

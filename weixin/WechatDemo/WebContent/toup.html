@@ -1,20 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
-	<meta charset="UTF-8">
-	<meta content="yes" name="apple-mobile-web-app-capable">
-	<meta content="black" name="apple-mobile-web-app-status-bar-style">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="css/toup.css" />
-	<link rel="stylesheet" href="swiper/swiper.min.css">
-	<script src="js/jquery-1.11.3.js"></script>
-	<script src="js/fontSize.js"></script>
-	<title>投票</title>
+<meta charset="UTF-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/toup.css" />
+<link rel="stylesheet" href="swiper/swiper.min.css">
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/fontSize.js"></script>
+<title>投票</title>
 </head>
 <body>
-	<section class="toup"  id="t1">
+	<section class="toup" id="t1">
 		<!-- <div class="logo">
 			<img src="images/logo.png"/>
 		</div> -->
@@ -35,94 +36,199 @@
 			<img src="images/logo.png"/>
 		</div> -->
 		<div class="swipers">
-		<!-- 上下 -->
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<div class="scores">
-						<h3>对于ZhiMoo的净水器，您在以下几个方面的需求程度如何呢？</h3>
-						<div class="f"><span>1</span>外观评分（1-5分）</div>
-						<div class="choose">
-							<div class="input"><input type="radio" name="score" id="1" value="1"/><label for="1">5分   必须非常漂亮，可放弃其他方面要求</label></div>
-							<div class="input"><input type="radio" name="score" id="2" value="2"/><label for="2">4分   </label></div>
-							<div class="input"><input type="radio" name="score" id="3" value="3"/><label for="3">3分   </label></div>
-							<div class="input"><input type="radio" name="score" id="4" value="4"/><label for="4">2分   </label></div>
-							<div class="input"><input type="radio" name="score" id="5" value="5"/><label for="5">1分   只要其他方面可以满足，外观无所谓</label></div>
+			<!-- 上下 -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="scores">
+							<h3>对于ZhiMoo的净水器，您在以下几个方面的需求程度如何呢？</h3>
+							<div class="f">
+								<span>1</span>外观评分（1-5分）
+							</div>
+							<div class="choose">
+								<div class="input">
+									<input type="radio" name="score" id="1" value="1" /><label
+										for="1">5分 必须非常漂亮，可放弃其他方面要求</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score" id="2" value="2" /><label
+										for="2">4分 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score" id="3" value="3" /><label
+										for="3">3分 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score" id="4" value="4" /><label
+										for="4">2分 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score" id="5" value="5" /><label
+										for="5">1分 只要其他方面可以满足，外观无所谓</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="scores">
+							<h3>对于ZhiMoo的安装师傅，您在以下几个方面的安装服务评价如何呢？</h3>
+							<div class="f">
+								<span>2</span>态度（1-5分）
+							</div>
+							<div class="choose">
+								<div class="input">
+									<input type="radio" name="score1" id="6" value="1" /><label
+										for="6">5分 必须赞，完美</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score1" id="7" value="2" /><label
+										for="7">4分 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score1" id="8" value="3" /><label
+										for="8">3分 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score1" id="9" value="4" /><label
+										for="9">2分 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score1" id="10" value="5" /><label
+										for="10">1分 差评</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="scores">
+							<h3>对于ZhiMoo的安装师傅，您在以下几个方面的安装技能评价如何呢？</h3>
+							<div class="f">
+								<span>3</span>技能（1-5分）
+							</div>
+							<div class="choose">
+								<div class="input">
+									<input type="radio" name="score2" id="11" value="1" /><label
+										for="11">5分 专业 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score2" id="12" value="2" /><label
+										for="12">4分 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score2" id="13" value="3" /><label
+										for="13">3分 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score2" id="14" value="4" /><label
+										for="14">2分 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score2" id="15" value="5" /><label
+										for="15">1分 一般</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="scores">
+							<h3>对于ZhiMoo的净水器，您对净水器功能评价如何呢？</h3>
+							<div class="f">
+								<span>4</span>功能（1-5分）
+							</div>
+							<div class="choose">
+								<div class="input">
+									<input type="radio" name="score3" id="16" /><label for="16">5分
+										完美 </label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score3" id="17" /><label for="17">4分
+									</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score3" id="18" /><label for="18">3分
+									</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score3" id="19" /><label for="19">2分
+									</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score3" id="20" /><label for="20">1分
+										一般</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="scores">
+							<h3>对于ZhiMoo的净水器，您对净水器充值功能评价如何呢？</h3>
+							<div class="f">
+								<span>5</span>在线充值（1-5分）
+							</div>
+							<div class="choose">
+								<div class="input">
+									<input type="radio" name="score3" id="21" /><label for="21">5分
+										完美</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score3" id="22" /><label for="22">4分
+									</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score3" id="23" /><label for="23">3分
+									</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score3" id="24" /><label for="24">2分
+									</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score3" id="25" /><label for="25">1分
+										一般</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="scores">
+							<h3>对于ZhiMoo的净水器，您在以下几个方面的需求程度如何呢？</h3>
+							<div class="f">
+								<span>6</span>请问您的年龄？
+							</div>
+							<div class="choose">
+								<div class="input">
+									<input type="radio" name="score4" id="26" /><label for="26">20-30
+									</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score4" id="27" /><label for="27">30-40
+									</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score4" id="28" /><label for="28">40-50</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score4" id="29" /><label for="29">50-60</label>
+								</div>
+								<div class="input">
+									<input type="radio" name="score4" id="30" /><label for="30">60以上</label>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="swiper-slide">
-					<div class="scores">
-						<h3>对于ZhiMoo的安装师傅，您在以下几个方面的安装服务评价如何呢？</h3>
-						<div class="f"><span>2</span>态度（1-5分）</div>
-						<div class="choose">
-							<div class="input"><input type="radio" name="score1" id="6" value="1"/><label for="6">5分   必须赞，完美</label></div>
-							<div class="input"><input type="radio" name="score1" id="7" value="2"/><label for="7">4分   </label></div>
-							<div class="input"><input type="radio" name="score1" id="8" value="3"/><label for="8">3分   </label></div>
-							<div class="input"><input type="radio" name="score1" id="9" value="4"/><label for="9">2分   </label></div>
-							<div class="input"><input type="radio" name="score1" id="10" value="5"/><label for="10">1分   差评</label></div>
-						</div>
+				<div class="preNexts">
+					<div class="swiper-button-prev">
+						<div class="pre"></div>
+						上一题
 					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="scores">
-						<h3>对于ZhiMoo的安装师傅，您在以下几个方面的安装技能评价如何呢？</h3>
-						<div class="f"><span>3</span>技能（1-5分）</div>
-						<div class="choose">
-							<div class="input"><input type="radio" name="score2" id="11" value="1"/><label for="11">5分  专业 </label></div>
-							<div class="input"><input type="radio" name="score2" id="12" value="2"/><label for="12">4分   </label></div>
-							<div class="input"><input type="radio" name="score2" id="13" value="3"/><label for="13">3分   </label></div>
-							<div class="input"><input type="radio" name="score2" id="14" value="4"/><label for="14">2分   </label></div>
-							<div class="input"><input type="radio" name="score2" id="15" value="5"/><label for="15">1分   一般</label></div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="scores">
-						<h3>对于ZhiMoo的净水器，您对净水器功能评价如何呢？</h3>
-						<div class="f"><span>4</span>功能（1-5分）</div>
-						<div class="choose">
-							<div class="input"><input type="radio" name="score3" id="16"/><label for="16">5分   完美 </label></div>
-							<div class="input"><input type="radio" name="score3" id="17"/><label for="17">4分   </label></div>
-							<div class="input"><input type="radio" name="score3" id="18"/><label for="18">3分   </label></div>
-							<div class="input"><input type="radio" name="score3" id="19"/><label for="19">2分   </label></div>
-							<div class="input"><input type="radio" name="score3" id="20"/><label for="20">1分   一般</label></div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="scores">
-						<h3>对于ZhiMoo的净水器，您对净水器充值功能评价如何呢？</h3>
-						<div class="f"><span>5</span>在线充值（1-5分）</div>
-						<div class="choose">
-							<div class="input"><input type="radio" name="score3" id="21"/><label for="21">5分   完美</label></div>
-							<div class="input"><input type="radio" name="score3" id="22"/><label for="22">4分   </label></div>
-							<div class="input"><input type="radio" name="score3" id="23"/><label for="23">3分   </label></div>
-							<div class="input"><input type="radio" name="score3" id="24"/><label for="24">2分   </label></div>
-							<div class="input"><input type="radio" name="score3" id="25"/><label for="25">1分   一般</label></div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="scores">
-						<h3>对于ZhiMoo的净水器，您在以下几个方面的需求程度如何呢？</h3>
-						<div class="f"><span>6</span>请问您的年龄？</div>
-						<div class="choose">
-							<div class="input"><input type="radio" name="score4" id="26"/><label for="26">20-30 </label></div>
-							<div class="input"><input type="radio" name="score4" id="27"/><label for="27">30-40 </label></div>
-							<div class="input"><input type="radio" name="score4" id="28"/><label for="28">40-50</label></div>
-							<div class="input"><input type="radio" name="score4" id="29"/><label for="29">50-60</label></div>
-							<div class="input"><input type="radio" name="score4" id="30"/><label for="30">60以上</label></div>
-						</div>
+					<div class="swiper-button-next">
+						<div class="next"></div>
+						下一题
 					</div>
 				</div>
 			</div>
-			<div class="preNexts">
-				<div class="swiper-button-prev"><div class="pre"></div>上一题</div>
-				<div class="swiper-button-next"><div class="next"></div>下一题</div>
-			</div>
-		</div>
-		<!-- 上下end -->
+			<!-- 上下end -->
 		</div>
 	</section>
 	<section class="toup" id="t3">
@@ -131,7 +237,7 @@
 		</div> -->
 		<div class="swipers">
 			<div class="con con1">
-				<input type="number" name="" class="phone" placeholder="手机号码"/>
+				<input type="number" name="" class="phone" placeholder="手机号码" />
 				<div class="smile">
 					<p>非常感谢您的配合!</p>
 					<p>我们将赠送您20元水费，请填写您的账户手机号，谢谢!</p>
